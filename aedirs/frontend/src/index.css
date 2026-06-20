@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0A0F1E;
+  --surface: #111827;
+  --surface2: #1F2937;
+  --border: #1E293B;
+  --red: #EF4444;
+  --orange: #F97316;
+  --yellow: #EAB308;
+  --green: #22C55E;
+  --blue: #3B82F6;
+  --purple: #A855F7;
+  --text: #F1F5F9;
+  --muted: #94A3B8;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  font-size: 14px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* Leaflet map dark override */
+.leaflet-container { background: #0D1526; }
+.leaflet-popup-content-wrapper {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.leaflet-popup-tip { background: var(--surface); }
+.leaflet-popup-close-button { color: var(--muted) !important; }
+
+/* Pulse animation */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+.pulse { animation: pulse-dot 1.5s infinite; }
+
+/* Slide-in notification */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(120%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.notif-slide { animation: slideIn 0.3s ease; }
+
+/* Chart bars */
+@keyframes growUp {
+  from { transform: scaleY(0); transform-origin: bottom; }
+  to   { transform: scaleY(1); transform-origin: bottom; }
+}
+.bar-grow { animation: growUp 0.6s ease; transform-origin: bottom; }
+
+/* Status flow */
+.status-flow-step {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--surface2);
+  color: var(--muted);
+}
+.status-flow-step.done  { background: rgba(34,197,94,.18); color: #86EFAC; }
+.status-flow-step.current { background: rgba(59,130,246,.18); color: #93C5FD; }

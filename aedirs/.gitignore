@@ -1,0 +1,30 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# React
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment Files
+.env
+.env.local
+
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+
+# Logs
+logs/
+*.log
